@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import fire from "./config/fire";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -44,26 +45,43 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <form>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="enter email address"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-          <input
-            name="password"
-            type="password"
-            onChange={this.handleChange}
-            id="password"
-            placeholder="enter password"
-            value={this.state.password}
-          />
-          <button onClick={this.login}>Login</button>
-          <button onClick={this.signup}>Signup</button>
-        </form>
+        <Form>
+          <Form.Group controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              placeholder="Enter email"
+              id="email"
+              name="email"
+              onChange={this.handleChange}
+              value={this.state.email}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+
+          <Form.Group controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              id="password"
+              value={this.state.password}
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" onClick={this.login} type="submit">
+            Login
+          </Button>
+          <Button variant="primary" onClick={this.signup} type="submit">
+            Register
+          </Button>
+        </Form>
       </div>
     );
   }

@@ -2,10 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Navbar_App from './navbar';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
+    <Navbar_App></Navbar_App>
     <App />
   </React.StrictMode>,
   document.getElementById('root')
